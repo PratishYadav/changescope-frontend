@@ -1,0 +1,28 @@
+# Angular
+node_modules/
+dist/
+.angular/
+
+# Java / Maven
+target/
+*.class
+
+# IDE
+.idea/
+.vscode/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Operating system
+.DS_Store
+Thumbs.db
+
+# Uploaded project data
+uploads/
+workspace/
