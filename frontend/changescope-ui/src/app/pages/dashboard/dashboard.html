@@ -1,0 +1,98 @@
+
+<div class="dashboard">
+
+  <div class="welcome-section">
+    <div>
+      <div class="eyebrow">DEVELOPER WORKSPACE</div>
+      <h1>Welcome to ChangeScope AI</h1>
+      <p>Understand the impact of a change before making the change.</p>
+    </div>
+
+    <a routerLink="/projects" class="primary-button">
+      <span>+</span> Add project
+    </a>
+  </div>
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <div class="stat-top">
+        <span>Total projects</span>
+        <span class="stat-icon purple">▦</span>
+      </div>
+      <strong>{{ loading ? '—' : totalProjects }}</strong>
+      <small>Registered repositories</small>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-top">
+        <span>Languages</span>
+        <span class="stat-icon blue">⌘</span>
+      </div>
+      <strong>{{ loading ? '—' : languages.length }}</strong>
+      <small>Distinct languages detected from project metadata</small>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-top">
+        <span>Analyses completed</span>
+        <span class="stat-icon green">✓</span>
+      </div>
+      <strong>0</strong>
+      <small>Impact analysis is coming next</small>
+    </div>
+
+  </div>
+
+  <div class="section-heading">
+    <div>
+      <h2>Your projects</h2>
+      <p>Repositories registered in ChangeScope AI</p>
+    </div>
+    <a routerLink="/projects" class="text-link">View all projects →</a>
+  </div>
+
+  @if (loading) {
+    <div class="message-card">Loading your projects...</div>
+  } @else if (error) {
+    <div class="message-card error">{{ error }}</div>
+  } @else if (projects.length === 0) {
+    <div class="empty-state">
+      <div class="empty-icon">⌘</div>
+      <h3>No projects registered yet</h3>
+      <p>Add your first GitHub repository to get started with ChangeScope AI.</p>
+      <a routerLink="/projects" class="primary-button">Register your first project</a>
+    </div>
+  } @else {
+    <div class="project-list">
+      @for (project of projects; track project.id) {
+        <div class="project-row">
+          <div class="project-symbol">⌘</div>
+
+          <div class="project-details">
+            <strong>{{ project.name }}</strong>
+            <a [href]="project.repositoryUrl" target="_blank" rel="noopener noreferrer">
+              {{ project.repositoryUrl }}
+            </a>
+          </div>
+
+          <span class="language-tag">{{ project.language }}</span>
+
+          <span class="project-date">
+            {{ project.createdAt | date:'mediumDate' }}
+          </span>
+        </div>
+      }
+    </div>
+  }
+
+  <div class="coming-soon">
+    <div>
+      <span class="coming-label">COMING NEXT</span>
+      <h3>Understand your codebase like never before.</h3>
+      <p>Repository scanning, dependency mapping and AI-powered impact analysis.</p>
+    </div>
+    <div class="coming-visual">AI</div>
+  </div>
+
+</div>

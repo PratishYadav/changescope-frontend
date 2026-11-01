@@ -1,0 +1,33 @@
+
+@use '@angular/material' as mat;
+
+@include mat.theme((
+  color: (
+    primary: mat.$violet-palette,
+    tertiary: mat.$azure-palette,
+  ),
+  typography: Roboto,
+  density: 0,
+));
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background: #0b0d12;
+}
+
+body {
+  color: #e8eaf0;
+  font-family: Inter, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}

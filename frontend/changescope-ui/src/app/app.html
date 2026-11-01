@@ -1,0 +1,75 @@
+
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">C</div>
+      <div class="brand-text">
+        <span class="brand-name">ChangeScope</span>
+        <span class="brand-caption">AI DEVELOPER INTELLIGENCE</span>
+      </div>
+    </div>
+
+    <div class="workspace-label">WORKSPACE</div>
+
+    <nav class="navigation">
+      @for (item of navigationItems; track item.route) {
+        <a
+          class="nav-item"
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <span class="nav-icon">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="workspace-label">PREFERENCES</div>
+
+      @for (item of bottomNavigationItems; track item.route) {
+        <a
+          class="nav-item"
+          [routerLink]="item.route"
+          routerLinkActive="active">
+          <span class="nav-icon">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+        </a>
+      }
+
+      <div class="user-card">
+        <div class="avatar">PY</div>
+        <div class="user-info">
+          <strong>Developer</strong>
+          <span>Personal Workspace</span>
+        </div>
+        <span class="user-menu">···</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-area">
+    <header class="topbar">
+      <div class="breadcrumb">
+        <span>Workspace</span>
+        <span class="breadcrumb-separator">/</span>
+        <strong>Overview</strong>
+      </div>
+
+      <div class="topbar-actions">
+        <div class="system-status">
+          <span class="status-dot"></span>
+          System operational
+        </div>
+        <button class="icon-button" aria-label="Notifications">♧</button>
+        <div class="top-avatar">PY</div>
+      </div>
+    </header>
+
+    <section class="page-content">
+      <router-outlet />
+    </section>
+  </main>
+
+</div>

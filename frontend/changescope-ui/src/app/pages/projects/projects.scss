@@ -1,0 +1,312 @@
+
+.projects-page {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.eyebrow {
+  color: #a78bfa;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.page-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-heading h1 {
+  font-size: 29px;
+  margin: 10px 0 7px;
+}
+
+.page-heading p,
+.card-heading p,
+.list-heading p {
+  color: #9299aa;
+  font-size: 12px;
+  margin: 0;
+}
+
+.project-count {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 5px;
+}
+
+.project-count strong {
+  font-size: 25px;
+}
+
+.project-count span {
+  font-size: 10px;
+  color: #9299aa;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(350px, 1.15fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.form-card,
+.repositories-section {
+  background: #121620;
+  border: 1px solid #252b39;
+  border-radius: 11px;
+  padding: 22px;
+}
+
+.card-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #252b39;
+  margin-bottom: 22px;
+}
+
+.heading-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background: #30234f;
+  color: #b99dff;
+  font-size: 22px;
+}
+
+.card-heading h2,
+.list-heading h2 {
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 19px;
+}
+
+.form-field label {
+  color: #d5d8e2;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  padding: 12px;
+  background: #0d1119;
+  color: #e8eaf0;
+  border: 1px solid #303747;
+  border-radius: 7px;
+  outline: none;
+  font-size: 12px;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: #8966ef;
+  box-shadow: 0 0 0 3px #8966ef22;
+}
+
+.form-field input::placeholder {
+  color: #687184;
+}
+
+.field-error {
+  color: #ff9292;
+  font-size: 10px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 13px;
+  background: #7554df;
+  border: 1px solid #8b6af4;
+  border-radius: 7px;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #8666ee;
+}
+
+.submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-note {
+  margin-top: 17px;
+  display: flex;
+  gap: 8px;
+  color: #858da0;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.alert {
+  margin-bottom: 14px;
+  padding: 11px;
+  border-radius: 7px;
+  font-size: 11px;
+}
+
+.error-alert {
+  background: #381e25;
+  color: #ffaaaa;
+  border: 1px solid #69313d;
+}
+
+.success-alert {
+  background: #16362d;
+  color: #82e5b8;
+  border: 1px solid #28654e;
+}
+
+.list-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.count-badge {
+  padding: 5px 9px;
+  background: #292141;
+  border-radius: 6px;
+  color: #b99dff;
+  font-size: 11px;
+}
+
+.empty-list {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #9299aa;
+  font-size: 12px;
+}
+
+.empty-list strong {
+  color: #e8eaf0;
+  margin-top: 12px;
+}
+
+.empty-list p {
+  font-size: 11px;
+}
+
+.empty-symbol {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: #292141;
+  border-radius: 12px;
+  color: #b99dff;
+  font-size: 23px;
+}
+
+.repository-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.repository-card {
+  display: flex;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #252b39;
+  align-items: flex-start;
+}
+
+.repo-icon {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #292141;
+  color: #b99dff;
+}
+
+.repo-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.repo-info strong {
+  font-size: 12px;
+}
+
+.repo-info a {
+  color: #9299aa;
+  font-size: 10px;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.repo-meta {
+  display: flex;
+  gap: 12px;
+  color: #858da0;
+  font-size: 10px;
+}
+
+.connected-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-size: 9px;
+  color: #70d6a5;
+}
+
+.connected-status span {
+  width: 6px;
+  height: 6px;
+  background: #35c98b;
+  border-radius: 50%;
+}
+
+@media (max-width: 950px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-heading {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .project-count {
+    display: none;
+  }
+
+  .repository-card {
+    flex-wrap: wrap;
+  }
+}

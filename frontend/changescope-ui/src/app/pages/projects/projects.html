@@ -1,0 +1,135 @@
+
+<div class="projects-page">
+
+  <div class="page-heading">
+    <div>
+      <div class="eyebrow">REPOSITORY MANAGEMENT</div>
+      <h1>Your Projects</h1>
+      <p>Connect your code repositories and prepare them for impact analysis.</p>
+    </div>
+
+    <div class="project-count">
+      <strong>{{ projects.length }}</strong>
+      <span>Registered projects</span>
+    </div>
+  </div>
+
+  <div class="content-grid">
+
+    <section class="form-card">
+      <div class="card-heading">
+        <div class="heading-icon">+</div>
+        <div>
+          <h2>Register a repository</h2>
+          <p>Add a GitHub repository to your workspace.</p>
+        </div>
+      </div>
+
+      <form [formGroup]="projectForm" (ngSubmit)="registerProject()">
+
+        <div class="form-field">
+          <label for="projectName">Project name</label>
+          <input
+            id="projectName"
+            type="text"
+            formControlName="name"
+            placeholder="e.g. ChangeScope Frontend"
+          />
+
+          @if (projectForm.controls.name.touched && projectForm.controls.name.invalid) {
+            <small class="field-error">Enter a project name with at least 2 characters.</small>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="repositoryUrl">GitHub repository URL</label>
+          <input
+            id="repositoryUrl"
+            type="url"
+            formControlName="repositoryUrl"
+            placeholder="https://github.com/username/repository"
+          />
+
+          @if (projectForm.controls.repositoryUrl.touched && projectForm.controls.repositoryUrl.invalid) {
+            <small class="field-error">Enter a valid HTTPS GitHub repository URL.</small>
+          }
+        </div>
+
+        <div class="form-field">
+          <label for="language">Primary language</label>
+          <select id="language" formControlName="language">
+            <option value="TypeScript">TypeScript</option>
+            <option value="Java">Java</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="C#">C#</option>
+            <option value="Go">Go</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        @if (error) {
+          <div class="alert error-alert">{{ error }}</div>
+        }
+
+        @if (success) {
+          <div class="alert success-alert">{{ success }}</div>
+        }
+
+        <button class="submit-button" type="submit" [disabled]="submitting">
+          {{ submitting ? 'Registering...' : 'Register project →' }}
+        </button>
+
+        <div class="form-note">
+          <span>🔒</span>
+          Only public GitHub repositories are supported in our initial ingestion phase.
+        </div>
+
+      </form>
+    </section>
+
+    <section class="repositories-section">
+      <div class="list-heading">
+        <div>
+          <h2>Connected repositories</h2>
+          <p>Your registered projects</p>
+        </div>
+        <span class="count-badge">{{ projects.length }}</span>
+      </div>
+
+      @if (loading) {
+        <div class="empty-list">Loading repositories...</div>
+      } @else if (projects.length === 0) {
+        <div class="empty-list">
+          <div class="empty-symbol">⌘</div>
+          <strong>No repositories yet</strong>
+          <p>Your registered repositories will appear here.</p>
+        </div>
+      } @else {
+        <div class="repository-list">
+          @for (project of projects; track project.id) {
+            <article class="repository-card">
+              <div class="repo-icon">⌘</div>
+
+              <div class="repo-info">
+                <strong>{{ project.name }}</strong>
+                <a [href]="project.repositoryUrl" target="_blank" rel="noopener noreferrer">
+                  {{ project.repositoryUrl }}
+                </a>
+                <div class="repo-meta">
+                  <span>{{ project.language }}</span>
+                  <span>Added {{ project.createdAt | date:'mediumDate' }}</span>
+                </div>
+              </div>
+
+              <span class="connected-status">
+                <span></span> Connected
+              </span>
+            </article>
+          }
+        </div>
+      }
+    </section>
+
+  </div>
+</div>
